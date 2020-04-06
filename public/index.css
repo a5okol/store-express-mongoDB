@@ -2,6 +2,19 @@ nav {
     color: #fff;
     background-color: black;
 }
+nav ul li.active {
+    background-color: rgb(64, 64, 64);
+}
+nav ul a:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+nav ul a {
+    -webkit-transition: none; 
+    transition: none;
+}
+
 .nav-wrapper {
     padding: 0 10px;
 }
+
+

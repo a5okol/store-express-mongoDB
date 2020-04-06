@@ -1,22 +1,56 @@
 <nav>
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo">Online clothing store</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/">T-SHIRTS</a></li>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Online clothing store</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      {{#if isTShirts}}
+        <li class="active"><a href="/t-shirts">T-SHIRTS</a></li>
+      {{else}}
+        <li><a href="/t-shirts">T-SHIRTS</a></li>
+      {{/if}}
+
+      {{#if isSweatshirts}}
+        <li class="active"><a href="/sweatshirts">SWEATSHIRTS</a></li>
+      {{else}}
         <li><a href="/sweatshirts">SWEATSHIRTS</a></li>
+      {{/if}}
+
+      {{#if isHoody}}
+        <li class="active"><a href="/hoody">HOODY</a></li>
+      {{else}}
         <li><a href="/hoody">HOODY</a></li>
+      {{/if}}
+
+      {{#if isShirts}}
+        <li class="active"><a href="/shirts">SHIRTS</a></li>
+      {{else}}
         <li><a href="/shirts">SHIRTS</a></li>
-        <li><a href="/hats">HATS</a></li>
-        <li><a href="/polo">POLO</a></li>
+      {{/if}}
+
+      {{#if isBackpacks}}
+        <li class="active"><a href="/backpacks">BACKPACKS</a></li>
+      {{else}}
         <li><a href="/backpacks">BACKPACKS</a></li>
+      {{/if}}
 
- 
+      {{#if isAddProduct}}
+        <li class="active"><a href="/add-product">Add product</a></li>
+      {{else}}
+        <li><a href="/add-product">Add product</a></li>
+      {{/if}}
+
+      
+      
+      
+      
+      
 
 
 
 
 
 
-      </ul>
-    </div>
-  </nav>
+
+
+    </ul>
+  </div>
+</nav>

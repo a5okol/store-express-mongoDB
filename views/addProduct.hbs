@@ -1,1 +1,45 @@
-<h1>add-producnt</h1>
+<h1>Добавить новый товар</h1>
+
+<form action="/add-product" method="POST">
+    <div class="switch availability">
+        <label>
+            Нет в наличии
+            <input name="availability" type="checkbox">
+            <span class="lever"></span>
+            В наличии
+        </label>
+    </div>
+    <div class="input-field">
+        <input id="title" name="title" type="text" class="validate" required>
+        <label for="title">Название товара</label>
+        <span class="helper-text" data-error="Введите название товара"></span>
+    </div>
+    <div class="input-field">
+        <input id="price" name="price" type="number" class="validate" required>
+        <label for="price">Цена</label>
+        <span class="helper-text" data-error="Введите цену товара"></span>
+
+    </div>
+    <div class="input-field">
+        <input id="sku" name="sku" type="text" class="validate" required>
+        <label for="sku">Артикул</label>
+        <span class="helper-text" data-error="Введите артикул"></span>
+    </div>
+    <div class="input-field">
+        <input id="quantity" name="quantity" type="number" class="validate" required>  
+        <label for="quantity">Количество</label>
+        <span class="helper-text" data-error="Введите количество товаров"></span>
+    </div>
+
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Фото</span>
+        <input name="photo" type="file" multiple >
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Добавьте одно или несколько изображений">
+      </div>
+    </div>
+
+    <button class="btn btn-large">Создать товар</button>
+</form>

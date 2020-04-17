@@ -111,3 +111,11 @@ input.valid:not([type]), input.valid:not([type]):focus, input.valid[type=text]:n
 .btn-small:hover {
   background-color: #424242;
 }
+
+select:focus {
+  outline: none;
+  border: 1px solid #000000;
+}
+select {
+  width: 30%;
+}

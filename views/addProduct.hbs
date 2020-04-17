@@ -1,6 +1,7 @@
 <h1>Добавить новый товар</h1>
 
 <form action="/add-product" method="POST">
+   
     <div class="switch availability">
         <label>
             Нет в наличии
@@ -9,6 +10,28 @@
             В наличии
         </label>
     </div>
+     <div>
+        <label>Тип одежды</label>
+        <select name="typeOfclothing" required="required" id="typeOfclothing" type="select" class="browser-default">
+            <option value="" disabled="true" selected="selected">Выберите тип одежды</option>
+            <option value="T-SHIRTS">T-SHIRTS</option>
+            <option value="SWEATSHIRTS">SWEATSHIRTS</option>
+            <option value="HOODY">HOODY</option>
+            <option value="SHIRTS">SHIRTS</option>
+            <option value="BACKPACKS">BACKPACKS</option>
+        </select>
+    </div>
+    {{!-- <div class="input-field">
+        <select name="typeOfclothing" type="select">
+            <option value="" disabled selected>Выберите тип одежды</option>
+            <option value="1">T-SHIRTS</option>
+            <option value="2">SWEATSHIRTS</option>
+            <option value="3">HOODY</option>
+            <option value="4">SHIRTS</option>
+            <option value="5">BACKPACKS</option>
+        </select>
+        <label>Тип одежды</label>
+    </div> --}}
     <div class="input-field">
         <input id="title" name="title" type="text" class="validate" required>
         <label for="title">Название товара</label>
@@ -26,20 +49,31 @@
         <span class="helper-text" data-error="Введите артикул"></span>
     </div>
     <div class="input-field">
-        <input id="quantity" name="quantity" type="number" class="validate" required>  
+        <input id="quantity" name="quantity" type="number" class="validate" required>
         <label for="quantity">Количество</label>
         <span class="helper-text" data-error="Введите количество товаров"></span>
     </div>
 
     <div class="file-field input-field">
-      <div class="btn">
-        <span>Фото</span>
-        <input name="photo" type="file" multiple >
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text" placeholder="Добавьте одно или несколько изображений">
-      </div>
+        <div class="btn">
+            <span>Фото</span>
+            <input name="img" type="file" multiple>
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Добавьте одно или несколько изображений">
+        </div>
     </div>
 
-    <button class="btn btn-large">Создать товар</button>
+    <button id='submit' class="btn btn-large">Создать товар</button>
 </form>
+
+<script>
+ document.getElementById('submit').onclick = () => {
+  const select = document.querySelector("select[name='typeOfclothing']")
+  const value = select.value;
+  const option = select.querySelector(`option[value='${value}']`)
+  const text = option.innerText
+  console.log(text)
+}
+        
+</script>

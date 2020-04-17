@@ -1,4 +1,6 @@
 const { Router } = require("express");
+
+const Product = require("../models/product");
 const router = new Router();
 
 router.get("/", (req, res) => {
@@ -8,9 +10,21 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/", (req, res) => {
-  console.log(req.body);
-  res.redirect('/add-product')
+router.post("/", async (req, res) => {
+  const product = new Product(
+    req.body.typeOfclothing,
+    req.body.availability,
+    req.body.title,
+    req.body.price,
+    req.body.sku,
+    req.body.quantity,
+    req.body.img
+  );
+
+
+  await product.save()
+
+  res.redirect('/add-product');
 });
 
-module.exports = router;
+module.exports = router

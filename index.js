@@ -23,6 +23,7 @@ app.set('views', 'views') // первый параметр - название п
 
 app.use(express.static('public')) // метод use позволяет добовлять middleware'ы
 app.use(express.urlencoded({ extended: true }))
+
 app.use('/', homeRoutes)
 app.use('/t-shirts', tshirtsRoutes)
 app.use('/sweatshirts', sweatshirtsRoutes)

@@ -119,3 +119,31 @@ select:focus {
 select {
   width: 30%;
 }
+
+.price {
+  font-size: 2rem;
+}
+
+.product {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.product h1 {
+  margin-bottom: 2rem;
+}
+
+.product img {
+  max-width: 600px;
+  height: auto;
+}
+
+.course .price.big {
+  font-size: 2.5rem
+}
+
+.container.product {
+  background: #2d2d2d;
+}

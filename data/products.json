@@ -1,4 +1,5 @@
 [
-    {"typeOfclothing":"T-SHIRTS","availability":"on","title":"2222","price":"33","sku":"44","quantity":"555","img":"https://jolybell.com/storage/yecyumtq2j.webp?preview=&width=765&height=841&quality=100","id":"74c9f6ac-4374-435d-a9c9-93f2671f95ea"},
-    {"typeOfclothing":"BACKPACKS","availability":"on","title":"Рюкзак","price":"20","sku":"20","quantity":"20","img":"https://jolybell.com/storage/5l7ra6e8yo.webp?preview=&width=765&height=891&quality=100","id":"8b3bbcfd-3b6a-4036-8fc5-d4d1fd0bbf03"}
+    {"typeOfclothes":"T-SHIRTS","availability":"on","title":"2222","price":"33","sku":"44","quantity":"555","img":"https://jolybell.com/storage/yecyumtq2j.webp?preview=&width=765&height=841&quality=100","id":"74c9f6ac-4374-435d-a9c9-93f2671f95ea"},
+    {"typeOfclothes":"BACKPACKS","availability":"on","title":"Рюкзак","price":"20","sku":"20","quantity":"20","img":"https://jolybell.com/storage/5l7ra6e8yo.webp?preview=&width=765&height=891&quality=100","id":"8b3bbcfd-3b6a-4036-8fc5-d4d1fd0bbf03"},
+    {"typeOfclothes":"BACKPACKS","availability":"on","title":"Рюкзак 2","price":"201","sku":"201","quantity":"201","img":"https://jolybell.com/storage/5l7ra6e8yo.webp?preview=&width=765&height=891&quality=100","id":"8b3bbcfd-3b6a-4036-8fc5-d4d1fd0bb22"}
 ]

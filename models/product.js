@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 
 class Product {
-  constructor(typeOfclothing, availability, title, price, sku, quantity, img) {
-    this.typeOfclothing = typeOfclothing;
+  constructor(typeOfclothes, availability, title, price, sku, quantity, img) {
+    this.typeOfclothes = typeOfclothes;
     this.availability = availability;
     this.title = title;
     this.price = price;
@@ -16,7 +16,7 @@ class Product {
 
   toJSON() {
     return {
-      typeOfclothing: this.typeOfclothing,
+      typeOfclothes: this.typeOfclothes,
       availability: this.availability,
       title: this.title,
       price: this.price,
@@ -71,11 +71,9 @@ class Product {
   //           reject(err);
   //         } else {
   //           let backpackparse = content.split('').filter(e => e.typeOfclothing === "BACKPACKS" ? backpack : null )
-  //           console.log("1", backpackparse)
   //           // let backpackparse = Object.values(content).filter(backpack => backpack.typeOfclothing === "BACKPACKS" ? null : backpack )
-  //           // console.log(backpackparse);
+
   //           let backpackparse2 = [...backpackparse].filter(backpack => backpack.typeOfclothing === "BACKPACKS" ? null : backpack).join``
-  //           console.log("2", backpackparse2)
   //           resolve(
   //             // JSON.parse(backpackparse)
   //           );
@@ -84,6 +82,11 @@ class Product {
   //     );
   //   });
   // }
+
+  static async getById(id) {
+    const products = await Product.getAll();
+    return products.find((c) => c.id === id);
+  }
 }
 
 module.exports = Product;

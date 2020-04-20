@@ -3,15 +3,19 @@
     {{#if products.length}}
     {{#each products}}
     <div class="col s4">
+
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
+                <a href="/backpacks/{{id}}">
                 <img class="activator" src="{{img}}">
+                </a>
             </div>
             <div class="card-content">
                 <span>{{typeOfclothing}}</span>
-                <span class="card-title activator grey-text text-darken-4">{{title}}</span>
-                <p><a href="/backpacks/{{id}}">{{title}}</a></p>
+                <span class="card-title activator grey-text text-darken-4"><a href="/backpacks/{{id}}">{{title}}</a></span>
+                <p class="price">{{price}}</p>
             </div>
+
         </div>
     </div>
     {{/each}}

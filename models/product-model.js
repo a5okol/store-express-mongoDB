@@ -27,6 +27,27 @@ class Product {
     };
   }
 
+  static async update(product) {
+    const products = await Product.getAll();
+
+    const idx = products.findIndex(c => c.id === product.id);
+    products[idx] = product
+
+    return new Promise((resolve, reject) => {
+      fs.writeFile(
+        path.join(__dirname, "..", "data", "products.json"),
+        JSON.stringify(products),
+        (err) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
+        }
+      );
+    });
+  }
+
   async save() {
     const products = await Product.getAll();
     products.push(this.toJSON());
@@ -70,10 +91,10 @@ class Product {
   //         if (err) {
   //           reject(err);
   //         } else {
-  //           let backpackparse = content.split('').filter(e => e.typeOfclothing === "BACKPACKS" ? backpack : null )
-  //           // let backpackparse = Object.values(content).filter(backpack => backpack.typeOfclothing === "BACKPACKS" ? null : backpack )
+  //           let backpackparse = content.split('').filter(e => e.typeOfclothes === "BACKPACKS" ? backpack : null )
+  //           // let backpackparse = Object.values(content).filter(backpack => backpack.typeOfclothes === "BACKPACKS" ? null : backpack )
 
-  //           let backpackparse2 = [...backpackparse].filter(backpack => backpack.typeOfclothing === "BACKPACKS" ? null : backpack).join``
+  //           let backpackparse2 = [...backpackparse].filter(backpack => backpack.typeOfclothes === "BACKPACKS" ? null : backpack).join``
   //           resolve(
   //             // JSON.parse(backpackparse)
   //           );
@@ -86,6 +107,11 @@ class Product {
   static async getById(id) {
     const products = await Product.getAll();
     return products.find((c) => c.id === id);
+  }
+
+  static async getBackpacks() {
+    const backpacks = await Product.getAll();
+    return backpacks.filter(p => p.typeOfclothes === "BACKPACKS");
   }
 }
 

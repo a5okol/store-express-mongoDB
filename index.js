@@ -8,6 +8,7 @@ const sweatshirtsRoutes = require('./routes/sweatshirts')
 const hoodyRoutes = require('./routes/hoody')
 const shirtsRoutes = require('./routes/shirts')
 const backpackssRoutes = require('./routes/backpacks')
+const cardRoutes = require('./routes/card')
 const addProductRoutes = require('./routes/addProduct')
 
 const app = express();
@@ -30,6 +31,7 @@ app.use('/sweatshirts', sweatshirtsRoutes)
 app.use('/hoody', hoodyRoutes)
 app.use('/shirts', shirtsRoutes)
 app.use('/backpacks', backpackssRoutes)
+app.use('/card', cardRoutes)
 app.use('/add-product', addProductRoutes)
 
 const PORT = process.env.PORT || 3000;

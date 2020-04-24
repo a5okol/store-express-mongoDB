@@ -1,6 +1,6 @@
 const { Router } = require("express");
 
-const Product = require("../models/product");
+const Product = require("../models/product-model");
 const router = new Router();
 
 router.get("/", (req, res) => {
@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   const product = new Product(
-    req.body.typeOfclothing,
+    req.body.typeOfclothes,
     req.body.availability,
     req.body.title,
     req.body.price,

@@ -1,18 +1,18 @@
-<h1>Добавить новый товар</h1>
+<h1>Редактировать {{product.title}}</h1>
 
-<form action="/add-product" method="POST">
+<form action="/backpacks/edit" method="POST">
    
     <div class="switch availability">
         <label>
             Нет в наличии
-            <input name="availability" type="checkbox">
+            <input name="availability" type="checkbox" value='{{product.availability}}'>
             <span class="lever"></span>
             В наличии
         </label>
     </div>
      <div>
         <label>Тип одежды</label>
-        <select name="typeOfclothes" required="required" id="typeOfclothes" type="select" class="browser-default">
+        <select name="typeOfclothes"  id="typeOfclothes" type="select" class="browser-default" required value='{{product.typeOfclothes}}'>
             <option value="" disabled="true" selected="selected">Выберите тип одежды</option>
             <option value="T-SHIRTS">T-SHIRTS</option>
             <option value="SWEATSHIRTS">SWEATSHIRTS</option>
@@ -21,35 +21,24 @@
             <option value="BACKPACKS">BACKPACKS</option>
         </select>
     </div>
-    {{!-- <div class="input-field">
-        <select name="typeOfclothes" type="select">
-            <option value="" disabled selected>Выберите тип одежды</option>
-            <option value="1">T-SHIRTS</option>
-            <option value="2">SWEATSHIRTS</option>
-            <option value="3">HOODY</option>
-            <option value="4">SHIRTS</option>
-            <option value="5">BACKPACKS</option>
-        </select>
-        <label>Тип одежды</label>
-    </div> --}}
     <div class="input-field">
-        <input id="title" name="title" type="text" class="validate" required>
+        <input id="title" name="title" type="text" class="validate" required value='{{product.title}}'>
         <label for="title">Название товара</label>
         <span class="helper-text" data-error="Введите название товара"></span>
     </div>
     <div class="input-field">
-        <input id="price" name="price" type="number" class="validate" required>
+        <input id="price" name="price" type="number" class="validate" required value='{{product.price}}'>
         <label for="price">Цена</label>
         <span class="helper-text" data-error="Введите цену товара"></span>
 
     </div>
     <div class="input-field">
-        <input id="sku" name="sku" type="text" class="validate" required>
+        <input id="sku" name="sku" type="text" class="validate" required value='{{product.sku}}'>
         <label for="sku">Артикул</label>
         <span class="helper-text" data-error="Введите артикул"></span>
     </div>
     <div class="input-field">
-        <input id="quantity" name="quantity" type="number" class="validate" required>
+        <input id="quantity" name="quantity" type="number" class="validate" required value='{{product.quantity}}'>
         <label for="quantity">Количество</label>
         <span class="helper-text" data-error="Введите количество товаров"></span>
     </div>
@@ -57,14 +46,16 @@
     <div class="file-field input-field">
         <div class="btn">
             <span>Фото</span>
-            <input name="img" type="file" multiple>
+            <input name="img" type="file" multiple value='{{product.img}}'>
         </div>
         <div class="file-path-wrapper">
             <input class="file-path validate" type="text" placeholder="Добавьте одно или несколько изображений">
         </div>
     </div>
 
-    <button id='submit' class="btn btn-large">Создать товар</button>
+    <input type="hidden" name="id" value='{{product.id}}'>
+
+    <button id='submit' class="btn btn-large">Редактировать товар</button>
 </form>
 
 <script>

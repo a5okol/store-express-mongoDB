@@ -22,7 +22,7 @@ app.engine('hbs', hbs.engine) // региструем в express наличие 
 app.set('view engine', 'hbs') // тут уже его используем
 app.set('views', 'views') // первый параметр - название переменной, второй - название папки где будут храниться все шаблоны
 
-app.use(express.static('public')) // метод use позволяет добовлять middleware'ы
+app.use(express.static(path.join(__dirname, 'public'))); // метод use позволяет добовлять middleware'ы
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/', homeRoutes)

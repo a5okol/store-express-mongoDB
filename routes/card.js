@@ -4,7 +4,9 @@ const Product = require("../models/product-model");
 const router = new Router();
 
 router.post("/add", async (req, res) => {
+  console.log('ID1', req.body.id)
   const product = await Product.getById(req.body.id);
+  console.log('ID', req.body.id)
   await Card.add(product);
   res.redirect("/card");
 });

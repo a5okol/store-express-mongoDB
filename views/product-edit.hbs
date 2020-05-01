@@ -1,7 +1,7 @@
 <h1>Редактировать {{product.title}}</h1>
 
-<form action="/backpacks/edit" method="POST">
-   
+<form action="/backpacks/edit" method="POST" class='product-form'>
+
     <div class="switch availability">
         <label>
             Нет в наличии
@@ -10,9 +10,10 @@
             В наличии
         </label>
     </div>
-     <div>
+    <div>
         <label>Тип одежды</label>
-        <select name="typeOfclothes"  id="typeOfclothes" type="select" class="browser-default" required value='{{product.typeOfclothes}}'>
+        <select name="typeOfclothes" id="typeOfclothes" type="select" class="browser-default" required
+            value='{{product.typeOfclothes}}'>
             <option value="" disabled="true" selected="selected">Выберите тип одежды</option>
             <option value="T-SHIRTS">T-SHIRTS</option>
             <option value="SWEATSHIRTS">SWEATSHIRTS</option>
@@ -55,16 +56,21 @@
 
     <input type="hidden" name="id" value='{{product.id}}'>
 
-    <button id='submit' class="btn btn-large">Редактировать товар</button>
+    <button type='submit' id='submit' class="btn btn-large">Редактировать товар</button>
+</form>
+
+<form action="/backpacks/remove" method="POST">
+    <input type="text" name='id' value='{{id}}'>
+    <button class="btn red">Удалить курс</button>
 </form>
 
 <script>
- document.getElementById('submit').onclick = () => {
-  const select = document.querySelector("select[name='typeOfclothes']")
-  const value = select.value;
-  const option = select.querySelector(`option[value='${value}']`)
-  const text = option.innerText
-  console.log(text)
-}
-        
+    document.getElementById('submit').onclick = () => {
+        const select = document.querySelector("select[name='typeOfclothes']")
+        const value = select.value;
+        const option = select.querySelector(`option[value='${value}']`)
+        const text = option.innerText
+        console.log(text)
+    }
+
 </script>

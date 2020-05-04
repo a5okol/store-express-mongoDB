@@ -12,6 +12,7 @@ const shirtsRoutes = require("./routes/shirts");
 const backpackssRoutes = require("./routes/backpacks");
 const cardRoutes = require("./routes/card");
 const addProductRoutes = require("./routes/addProduct");
+const ordersRoutes = require("./routes/orders");
 const User = require("./models/user-model");
 
 const app = express();
@@ -34,7 +35,7 @@ app.use(async (req, res, next) => {
   try {
     const user = await User.findById("5eaac15e6a2f74372baf0123");
     req.user = user;
-    next()
+    next();
   } catch (err) {
     console.log(err);
   }
@@ -51,6 +52,7 @@ app.use("/shirts", shirtsRoutes);
 app.use("/backpacks", backpackssRoutes);
 app.use("/card", cardRoutes);
 app.use("/add-product", addProductRoutes);
+app.use("/orders", ordersRoutes);
 
 const PORT = process.env.PORT || 3000;
 

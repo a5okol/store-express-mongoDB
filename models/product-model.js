@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const product = new Schema({
+const productSchema = new Schema({
   typeOfclothes: {
     type: String,
     require: true,
@@ -28,11 +28,20 @@ const product = new Schema({
   img: String,
   userId: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
-  }
+    ref: "User",
+  },
 });
 
-module.exports = model("Product", product);
+productSchema.method("toClient", function () {
+  const product = this.toObject();
+
+  product.id = product._id;
+  delete product._id;
+
+  return product;
+});
+
+module.exports = model("Product", productSchema);
 
 // const { v4: uuidv4 } = require("uuid");
 // const fs = require("fs");

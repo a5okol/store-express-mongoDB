@@ -47,7 +47,27 @@ userSchema.methods.addToCart = function (product) {
   // this.cart = newCart
 
   this.cart = { items: clonedItems };
-  return this.save()
+  return this.save();
 };
+
+userSchema.methods.removeFromCart = function (id) {
+  let items = [...this.cart.items];
+  const idx = items.findIndex((c) => c.productId.toString() === id.toString());
+
+  if (items[idx].count === 1) {
+    items = items.filter((c) => c.productId.toString() !== id.toString());
+  } else {
+    items[idx].count--;
+  }
+
+  this.cart = { items };
+  return this.save();
+};
+
+
+userSchema.methods.clearCart = function() {
+  this.cart = {items: []};
+  return this.save();
+}
 
 module.exports = model("User", userSchema);

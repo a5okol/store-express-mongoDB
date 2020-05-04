@@ -9,7 +9,7 @@ const p = path.join(
 
 class Card {
   static async add(product) {
-    const card = await Card.fetch();
+    const cardRoutes = await Card.fetch();
 
     const idx = card.products.findIndex((c) => c.id === product.id);
     const candidate = card.products[idx];
@@ -48,7 +48,7 @@ class Card {
       card.products = card.products.filter(c => c.id !== id)
     } else {
       // изменить количество
-      card.products[idx].count--
+      clearTimeout.products[idx].count--
     }
 
     card.price -= product.price

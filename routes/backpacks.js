@@ -6,8 +6,6 @@ router.get("/", async (req, res) => {
   const products = await Product.find({ typeOfclothes: "BACKPACKS" })
     .populate("userId", 'email name')
     .select("price title img typeOfclothes");
-
-  console.log(products);
   res.render("backpacks", {
     title: "Стильные рюкзаки в интерент-магазина одежды",
     isBackpacks: true,
@@ -54,35 +52,6 @@ router.get("/:id/edit", async (req, res) => {
     product,
   });
 });
-
-// router.get("/:id/edit", async (req, res) => {
-//   if (!req.query.allow) {
-//     return res.redirect("/");
-//   }
-//   await Product.findById(req.params.id)
-//     .then((documents) => {
-//       const context = {
-//         products: documents.map((product) => {
-//           return {
-//             typeOfclothes: product.typeOfclothes,
-//             availability: product.availability,
-//             title: product.title,
-//             price: product.price,
-//             sku: product.sku,
-//             quantity: product.quantity,
-//             img: product.img,
-//             id: product._id,
-//           };
-//         }),
-//       };
-
-//       res.render("product-edit", {
-//         title: `Редактировать ${product.title}`,
-//         products: context.products,
-//       });
-//     })
-//     .catch((error) => res.status(500).send(error));
-// });
 
 router.post("/edit", async (req, res) => {
   const { id } = req.body;

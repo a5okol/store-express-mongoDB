@@ -1,5 +1,5 @@
 {
-  "name": "store-express-mongoDB",
+  "name": "store-express-mongodb",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

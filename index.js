@@ -67,7 +67,7 @@ async function start() {
       const user = new User({
         email: "andrew@gmail.com",
         name: "Andrew",
-        card: { items: [] },
+        cart: { items: [] },
       });
       await user.save();
     }

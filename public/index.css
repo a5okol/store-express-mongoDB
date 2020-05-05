@@ -178,3 +178,33 @@ select {
   margin-bottom: 0;
   width: 100%;
 }
+
+.auth {
+  padding: 20px;
+}
+ul#tabs-swipe {
+  text-align: center;
+}
+.col.s12.offset-s3 {
+  background-color: #eaeaea !important;
+  border-radius: 4px;
+  padding: 20px;
+}
+.auth.container {
+  width: 42%;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  background-color: transparent;
+  color: #020202;
+}
+
+.tabs .indicator {
+  background-color: #505050;
+}
+.tabs .tab a {
+  color: rgba(95, 95, 95, 0.7);
+}
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: rgba(130, 130, 130, 0.2);
+}

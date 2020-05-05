@@ -14,6 +14,7 @@ const cardRoutes = require("./routes/card");
 const addProductRoutes = require("./routes/addProduct");
 const ordersRoutes = require("./routes/orders");
 const User = require("./models/user-model");
+const authRoutes = require("./routes/auth.js");
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.use("/backpacks", backpackssRoutes);
 app.use("/card", cardRoutes);
 app.use("/add-product", addProductRoutes);
 app.use("/orders", ordersRoutes);
+app.use("/auth", authRoutes);
 
 const PORT = process.env.PORT || 3000;
 

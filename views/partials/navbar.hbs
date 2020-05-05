@@ -32,30 +32,33 @@
       <li><a href="/backpacks">BACKPACKS</a></li>
       {{/if}}
 
-      {{#if isAddProduct}}
-      <li class="active"><a href="/add-product">Add product</a></li>
-      {{else}}
-      <li><a href="/add-product">Add product</a></li>
-      {{/if}}
+      {{#if isAuth}}
+          {{#if isAddProduct}}
+          <li class="active"><a href="/add-product">Add product</a></li>
+          {{else}}
+          <li><a href="/add-product">Add product</a></li>
+          {{/if}}
 
-      {{#if isCard}}
-      <li class="active"><a href="/card">Card</a></li>
-      {{else}}
-      <li><a href="/card">Card</a></li>
-      {{/if}}
+          {{#if isCard}}
+          <li class="active"><a href="/card">Card</a></li>
+          {{else}}
+          <li><a href="/card">Card</a></li>
+          {{/if}}
 
-      {{#if isOrder}}
-      <li class="active"><a href="/orders">Orders</a></li>
+          {{#if isOrder}}
+          <li class="active"><a href="/orders">Orders</a></li>
+          {{else}}
+          <li><a href="/orders">Orders</a></li>
+          {{/if}}
+          <li><a href="/auth/logout">Log out</a></li>
       {{else}}
-      <li><a href="/orders">Orders</a></li>
+    
+          {{#if isLogin}}
+          <li class="active"><a href="/auth/login#login">Login</a></li>
+          {{else}}
+          <li><a href="/auth/login#login">Login</a></li>
+          {{/if}}
       {{/if}}
-
-       {{#if isLogin}}
-      <li class="active"><a href="/auth/login#login">Login</a></li>
-      {{else}}
-      <li><a href="/auth/login#login">Login</a></li>
-      {{/if}}
-
     </ul>
   </div>
 </nav>

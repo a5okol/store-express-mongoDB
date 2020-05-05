@@ -25,9 +25,13 @@
                             <button class="btn btn-primary">Купить</button>
                         </form>
                     </div>
+                    {{#if @root.isAuth}}
                     <div class="col s2">
                         <a href="backpacks/{{id}}/edit?allow=true">Ред.</a>
                     </div>
+                    {{else}}
+
+                    {{/if}}
                 </div>
             </div>
 

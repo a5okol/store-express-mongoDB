@@ -1,15 +1,16 @@
 const { Router } = require("express");
 const Product = require("../models/product-model");
+const auth = require("../middleware/auth");
 const router = new Router();
 
-router.get("/", (req, res) => {
+router.get("/", auth, (req, res) => {
   res.render("addProduct", {
     title: "Добавить товар",
     isAddProduct: true,
   });
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   // const product = new Product(
   //   req.body.typeOfclothes,
   //   req.body.availability,
@@ -27,7 +28,7 @@ router.post("/", async (req, res) => {
     sku: req.body.sku,
     quantity: req.body.quantity,
     img: req.body.img,
-    userId: req.user
+    userId: req.user,
   });
 
   try {

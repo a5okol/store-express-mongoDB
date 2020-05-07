@@ -5,7 +5,7 @@ const router = new Router();
 function mapCartItems(cart) {
   return cart.items.map((c) => ({
     ...c.productId._doc,
-    id: c.productId._id,
+    id: c.productId.id,
     count: c.count,
   }));
 }

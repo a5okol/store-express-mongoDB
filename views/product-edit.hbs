@@ -55,13 +55,16 @@
     </div>
 
     <input type="hidden" name="id" value='{{product.id}}'>
+    <input type="hidden" name="_csrf" value="{{csrf}}">
 
     <button type='submit' id='submit' class="btn btn-large">Редактировать товар</button>
 </form>
+<hr>
 
 <form action="/backpacks/remove" method="POST">
-    <input type="text" name='id' value='{{id}}'>
-    <button class="btn red">Удалить курс</button>
+    <input type="hidden" name='id' value='{{product.id}}'>
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button class="btn red">Удалить товар</button>
 </form>
 
 <script>

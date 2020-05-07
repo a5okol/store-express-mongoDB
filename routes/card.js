@@ -1,13 +1,17 @@
 const { Router } = require("express");
 const Product = require("../models/product-model");
-const router = new Router();
+const router = Router();
 
 function mapCartItems(cart) {
-  return cart.items.map((c) => ({
-    ...c.productId._doc,
-    id: c.productId.id,
-    count: c.count,
-  }));
+  try {
+    return cart.items.map((c) => ({
+      ...c.productId._doc,
+      id: c.productId.id,
+      count: c.count,
+    }));
+  } catch (err) {
+    console.log("ERR!!!:", err);
+  }
 }
 
 function computePrice(products) {
@@ -25,10 +29,10 @@ router.post("/add", async (req, res) => {
 router.delete("/remove/:id", async (req, res) => {
   await req.user.removeFromCart(req.params.id);
   const user = await req.user.populate("cart.items.productId").execPopulate();
-  const product = mapCartItems(user.cart);
+  const products = mapCartItems(user.cart);
   const cart = {
     products,
-    price: computePrice(product),
+    price: computePrice(products),
   };
 
   res.status(200).json(cart);
@@ -36,7 +40,7 @@ router.delete("/remove/:id", async (req, res) => {
 
 router.get("/", async (req, res) => {
   const user = await req.user.populate("cart.items.productId").execPopulate();
-
+  console.log('user.cart!!!!!!!!!!!!!!!!!!!!', user.cart)
   const products = mapCartItems(user.cart);
 
   res.render("card", {

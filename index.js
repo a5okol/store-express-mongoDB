@@ -4,6 +4,7 @@ const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongodb-session")(session);
+const csrf = require("csurf");
 
 const Handlebars = require("handlebars");
 const {
@@ -52,6 +53,7 @@ app.use(
     store
   })
 );
+app.use(csrf());
 app.use(varMiddleware);
 app.use(userMiddleware)
 

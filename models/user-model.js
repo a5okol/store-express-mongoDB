@@ -30,15 +30,15 @@ const userSchema = new Schema({
 });
 
 userSchema.methods.addToCart = function (product) {
-  const Items = [...this.cart.items];
-  const idx = Items.findIndex((c) => {
+  const items = [...this.cart.items];
+  const idx = items.findIndex((c) => {
     return c.productId.toString() === product._id.toString();
   });
 
   if (idx >= 0) {
-    Items[idx].count = Items[idx].count + 1;
+    items[idx].count = items[idx].count + 1;
   } else {
-    Items.push({
+    items.push({
       productId: product._id,
       count: 1,
     });

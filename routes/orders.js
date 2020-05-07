@@ -11,10 +11,10 @@ router.get("/", auth, async (req, res) => {
     res.render("orders", {
       isOrder: true,
       title: "Заказы",
-      orders: orders.map((order) => {
+      orders: orders.map((o) => {
         return {
-          ...order._doc,
-          price: order.products.reduce((total, c) => {
+          ...o._doc,
+          price: o.products.reduce((total, c) => {
             return (total += c.count * c.product.price);
           }, 0),
         };

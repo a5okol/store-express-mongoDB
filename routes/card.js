@@ -31,7 +31,7 @@ router.delete("/remove/:id", async (req, res) => {
     price: computePrice(product),
   };
 
-  res.status(200).json(card);
+  res.status(200).json(cart);
 });
 
 router.get("/", async (req, res) => {

@@ -5,41 +5,15 @@ const router = new Router();
 
 router.get("/", async (req, res) => {
   const products = await Product.find({ typeOfclothes: "BACKPACKS" })
-    .populate("userId", 'email name')
+    .populate("userId", "email name")
     .select("price title img typeOfclothes");
+
   res.render("backpacks", {
     title: "Стильные рюкзаки в интерент-магазина одежды",
     isBackpacks: true,
     products,
   });
 });
-
-// router.get("/", async (req, res) => {
-//   await Product.find()
-//     .then((documents) => {
-//       // create context Object with 'usersDocuments' key
-//       const context = {
-//         products: documents.map((product) => {
-//           return {
-//             typeOfclothes: product.typeOfclothes,
-//             availability: product.availability,
-//             title: product.title,
-//             price: product.price,
-//             sku: product.sku,
-//             quantity: product.quantity,
-//             img: product.img,
-//             id: product._id,
-//           };
-//         }),
-//       };
-//       // rendering usersDocuments from context Object
-//       res.render("backpacks", {
-//         products: context.products,
-//         isBackpacks: true,
-//       });
-//     })
-//     .catch((error) => res.status(500).send(error));
-// });
 
 router.get("/:id/edit", auth, async (req, res) => {
   if (!req.query.allow) {
@@ -63,7 +37,7 @@ router.post("/edit", auth, async (req, res) => {
 
 router.post("/remove", auth, async (req, res) => {
   try {
-    await Product.deleteOne({ id: req.body._id });
+    await Product.deleteOne({ _id: req.body.id });
     res.redirect("/");
   } catch (err) {
     console.log(err);

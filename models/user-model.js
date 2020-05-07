@@ -29,24 +29,21 @@ const userSchema = new Schema({
 });
 
 userSchema.methods.addToCart = function (product) {
-  const clonedItems = [...this.cart.items];
-  const idx = clonedItems.findIndex((c) => {
+  const Items = [...this.cart.items];
+  const idx = Items.findIndex((c) => {
     return c.productId.toString() === product._id.toString();
   });
 
   if (idx >= 0) {
-    clonedItems[idx].count = clonedItems[idx].count + 1;
+    Items[idx].count = Items[idx].count + 1;
   } else {
-    clonedItems.push({
+    Items.push({
       productId: product._id,
       count: 1,
     });
   }
 
-  // const newCart = {items: clonedItems}
-  // this.cart = newCart
-
-  this.cart = { items: clonedItems };
+  this.cart = { items };
   return this.save();
 };
 

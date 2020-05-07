@@ -22,7 +22,9 @@ const cardRoutes = require("./routes/card");
 const addProductRoutes = require("./routes/addProduct");
 const ordersRoutes = require("./routes/orders");
 const authRoutes = require("./routes/auth.js");
+
 const varMiddleware = require("./middleware/variables");
+const userMiddleware = require("./middleware/user")
 
 const MONGODB_URI = `mongodb+srv://andrew:0uZrCRaZ5ORKmSXB@cluster0-tn1re.mongodb.net/shop`;
 const app = express();
@@ -51,6 +53,7 @@ app.use(
   })
 );
 app.use(varMiddleware);
+app.use(userMiddleware)
 
 app.use("/", homeRoutes);
 app.use("/t-shirts", tshirtsRoutes);

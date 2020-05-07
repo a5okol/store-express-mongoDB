@@ -11,15 +11,6 @@ router.get("/", auth, (req, res) => {
 });
 
 router.post("/", auth, async (req, res) => {
-  // const product = new Product(
-  //   req.body.typeOfclothes,
-  //   req.body.availability,
-  //   req.body.title,
-  //   req.body.price,
-  //   req.body.sku,
-  //   req.body.quantity,
-  //   req.body.img
-  // );
   const product = new Product({
     typeOfclothes: req.body.typeOfclothes,
     availability: req.body.availability,

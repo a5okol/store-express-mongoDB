@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const orderSchemam = new Schema({
+const orderSchema = new Schema({
   products: [
     {
       product: {
@@ -27,4 +27,4 @@ const orderSchemam = new Schema({
   },
 });
 
-module.exports = model("Order", orderSchemam);
+module.exports = model("Order", orderSchema);

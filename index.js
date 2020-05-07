@@ -5,13 +5,12 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongodb-session")(session);
 const csrf = require("csurf");
+const flash = require("connect-flash");
 
 const Handlebars = require("handlebars");
 const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
-
-const User = require("./models/user-model");
 
 const homeRoutes = require("./routes/home");
 const tshirtsRoutes = require("./routes/tshirts");
@@ -54,8 +53,9 @@ app.use(
   })
 );
 app.use(csrf());
+app.use(flash());
 app.use(varMiddleware);
-app.use(userMiddleware)
+app.use(userMiddleware);
 
 app.use("/", homeRoutes);
 app.use("/t-shirts", tshirtsRoutes);

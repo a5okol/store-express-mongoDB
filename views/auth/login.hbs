@@ -5,6 +5,11 @@
     </ul>
 
     <div id="login" class="col s12 offset-s3">
+
+        {{#if loginError}}
+        <p class="toast" style="top: 0px; opacity: 1;">{{loginError}}</p>
+        {{/if}}
+
         <h5>Вход в магазин</h5>
         <form action="/auth/login" method="POST">
             <div class="input-field">
@@ -25,6 +30,11 @@
     </div>
 
     <div id="register" class="col s12 offset-s3">
+
+        {{#if registerError}}
+        <p class="toast" style="top: 0px; opacity: 1;">{{registerError}}</p>
+        {{/if}}
+
         <h5>Регистрация в магазине</h5>
         <form action="/auth/register" method="POST">
             <div class="input-field">
@@ -49,7 +59,7 @@
             </div>
 
             <input type="hidden" name="_csrf" value="{{csrf}}">
-            
+
             <button id='submit' class="btn btn-large" type="submit">Зарегистрироваться</button>
         </form>
 

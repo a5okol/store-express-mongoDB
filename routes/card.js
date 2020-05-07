@@ -40,7 +40,6 @@ router.delete("/remove/:id", async (req, res) => {
 
 router.get("/", async (req, res) => {
   const user = await req.user.populate("cart.items.productId").execPopulate();
-  console.log('user.cart!!!!!!!!!!!!!!!!!!!!', user.cart)
   const products = mapCartItems(user.cart);
 
   res.render("card", {

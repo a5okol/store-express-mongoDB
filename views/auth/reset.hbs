@@ -1,0 +1,20 @@
+<div class="auth container">
+    <div class="col s12 offset-s3">
+
+        {{#if error}}
+        <p class="toast" style="top: 0px; opacity: 1;">{{loginError}}</p>
+        {{/if}}
+
+        <h5>Ввостановление пароля</h5>
+        <form action="/auth/reset" method="POST">
+            <div class="input-field">
+                <input id="email" name="email" type="email" class="validate" required>
+                <label for="email">Email</label>
+                <span class="helper-text" data-error="Введите email"></span>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <button id='submit' class="btn btn-large" type="submit">Сбросить</button>
+        </form>
+    </div>
+</div>

@@ -194,7 +194,8 @@ ul#tabs-swipe {
   width: 42%;
 }
 
-.tabs .tab a:hover, .tabs .tab a.active {
+.tabs .tab a:hover,
+.tabs .tab a.active {
   background-color: transparent;
   color: #020202;
 }
@@ -205,6 +206,11 @@ ul#tabs-swipe {
 .tabs .tab a {
   color: rgba(95, 95, 95, 0.7);
 }
-.tabs .tab a:focus, .tabs .tab a:focus.active {
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
   background-color: rgba(130, 130, 130, 0.2);
+}
+.gray_link {
+  margin-left: 32px;
+  color: #969696;
 }

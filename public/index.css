@@ -45,7 +45,7 @@ h1 {
 
 input[type="number"]:not(.browser-default),
 input[type="text"]:not(.browser-default) {
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid #9e9e9e;
 }
 input:not([type]):focus:not([readonly]) + label,
 input[type="text"]:not(.browser-default):focus:not([readonly]) + label,

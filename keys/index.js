@@ -5,3 +5,7 @@ module.exports = {
   EMAIL_FROM: "andrew@sokolenko.biz",
   BASE_URL: 'http://localhost:3000'
 };
+
+
+//  "API_KEY_FOR_NODEJS" was successfully created and added to the next step.
+// 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

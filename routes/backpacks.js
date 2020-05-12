@@ -4,7 +4,7 @@ const auth = require("../middleware/auth");
 const router = new Router();
 
 function isOwner(product, req) {
-  return product.userId.toString() !== req.user._id.toString();
+  return product.userId.toString() === req.user._id.toString();
 }
 
 router.get("/", async (req, res) => {
@@ -48,10 +48,10 @@ router.post("/edit", auth, async (req, res) => {
     const { id } = req.body;
     delete req.body.id;
     const product = await Product.findById(id);
-    if(!isOwner(product, req)) {
-      return res.redirect('/')
+    if (!isOwner(product, req)) {
+      return res.redirect("/");
     }
-    Object.assign(product, req.body)
+    Object.assign(product, req.body);
     await product.save();
     // await Product.findByIdAndUpdate(id, req.body);
     res.redirect("/");
@@ -62,20 +62,28 @@ router.post("/edit", auth, async (req, res) => {
 
 router.post("/remove", auth, async (req, res) => {
   try {
-    await Product.deleteOne({ _id: req.body.id });
+    await Product.deleteOne({
+      _id: req.body.id,
+      userId: req.user._id,
+    });
+
     res.redirect("/");
   } catch (err) {
     console.log(err);
   }
-});
 
-router.get("/:id", async (req, res) => {
-  const product = await Product.findById(req.params.id);
-  res.render("product", {
-    layout: "empty",
-    title: `Купить ${product.title} в интернет-магазине`,
-    product,
-  });
+  try {
+    router.get("/:id", async (req, res) => {
+      const product = await Product.findById(req.params.id);
+      res.render("product", {
+        layout: "empty",
+        title: `Купить ${product.title} в интернет-магазине`,
+        product,
+      });
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;

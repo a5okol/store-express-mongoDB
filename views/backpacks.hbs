@@ -27,16 +27,16 @@
                         </form>
                     </div>
                     {{#if @root.isAuth}}
-                    <div class="col s2">
-                        <a href="backpacks/{{id}}/edit?allow=true">Ред.</a>
-                    </div>
+                            {{#ifeq userId._id @root.userId}}
+                            <div class="col s2">
+                                <a href="backpacks/{{id}}/edit?allow=true">Ред.</a>
+                            </div>
+                            {{/ifeq}}
                     {{else}}
 
                     {{/if}}
                 </div>
             </div>
-
-
         </div>
     </div>
     {{/each}}

@@ -3,36 +3,61 @@ const Product = require("../models/product-model");
 const auth = require("../middleware/auth");
 const router = new Router();
 
-router.get("/", async (req, res) => {
-  const products = await Product.find({ typeOfclothes: "BACKPACKS" })
-    .populate("userId", "email name")
-    .select("price title img typeOfclothes");
+function isOwner(product, req) {
+  return product.userId.toString() !== req.user._id.toString();
+}
 
-  res.render("backpacks", {
-    title: "Стильные рюкзаки в интерент-магазина одежды",
-    isBackpacks: true,
-    products,
-  });
+router.get("/", async (req, res) => {
+  try {
+    const products = await Product.find({ typeOfclothes: "BACKPACKS" })
+      .populate("userId", "email name")
+      .select("price title img typeOfclothes");
+
+    res.render("backpacks", {
+      title: "Стильные рюкзаки в интерент-магазина одежды",
+      isBackpacks: true,
+      userId: req.user ? req.user._id.toString() : null,
+      products,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.get("/:id/edit", auth, async (req, res) => {
   if (!req.query.allow) {
     return res.redirect("/");
   }
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!isOwner(product, req)) {
+      return res.redirect("/");
+    }
 
-  const product = await Product.findById(req.params.id);
-
-  res.render("product-edit", {
-    title: `Редактировать ${product.title}`,
-    product,
-  });
+    res.render("product-edit", {
+      title: `Редактировать ${product.title}`,
+      product,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 router.post("/edit", auth, async (req, res) => {
-  const { id } = req.body;
-  delete req.body.id;
-  await Product.findByIdAndUpdate(id, req.body);
-  res.redirect("/");
+  try {
+    const { id } = req.body;
+    delete req.body.id;
+    const product = await Product.findById(id);
+    if(!isOwner(product, req)) {
+      return res.redirect('/')
+    }
+    Object.assign(product, req.body)
+    await product.save();
+    // await Product.findByIdAndUpdate(id, req.body);
+    res.redirect("/");
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 router.post("/remove", auth, async (req, res) => {

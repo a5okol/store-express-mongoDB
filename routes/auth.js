@@ -66,8 +66,7 @@ router.post("/login", async (req, res) => {
 
 router.post("/register", registerValidators, async (req, res) => {
   try {
-    const { email, name, password, confirm } = req.body;
-    const candidate = await User.findOne({ email });
+    const { email, name, password } = req.body;
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -75,22 +74,16 @@ router.post("/register", registerValidators, async (req, res) => {
       return res.status(422).redirect("/auth/login#register");
     }
 
-    if (candidate) {
-      req.flash("registerError", "Пользователь с таким email уже существует");
-      res.redirect("/auth/login#register");
-    } else {
-      const hachPassword = await bcryptjs.hash(password, 10);
-      const user = new User({
-        email,
-        name,
-        password: hachPassword,
-        cart: { items: [] },
-      });
-      await user.save(); // ждем когда пользователь сохраниться
-
-      await transporter.sendMail(regEmail(email));
-      res.redirect("/auth/login#login");
-    }
+    const hachPassword = await bcryptjs.hash(password, 10);
+    const user = new User({
+      email,
+      name,
+      password: hachPassword,
+      cart: { items: [] },
+    });
+    await user.save(); // ждем когда пользователь сохраниться
+    await transporter.sendMail(regEmail(email));
+    res.redirect("/auth/login#login");
   } catch (err) {
     console.log(err);
   }

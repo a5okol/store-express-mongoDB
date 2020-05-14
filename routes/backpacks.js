@@ -1,6 +1,8 @@
 const { Router } = require("express");
 const Product = require("../models/product-model");
 const auth = require("../middleware/auth");
+const { productValidators } = require("../utils/validators.js");
+const { validationResult } = require("express-validator/check");
 const router = new Router();
 
 function isOwner(product, req) {
@@ -28,6 +30,7 @@ router.get("/:id/edit", auth, async (req, res) => {
   if (!req.query.allow) {
     return res.redirect("/");
   }
+
   try {
     const product = await Product.findById(req.params.id);
     if (!isOwner(product, req)) {
@@ -43,9 +46,15 @@ router.get("/:id/edit", auth, async (req, res) => {
   }
 });
 
-router.post("/edit", auth, async (req, res) => {
+router.post("/edit", auth, productValidators, async (req, res) => {
+  const errors = validationResult(req);
+  const { id } = req.body;
+
+  if (!errors.isEmpty()) {
+    return res.status(422).redirect("/${id}/edit?allow=true");
+  }
+
   try {
-    const { id } = req.body;
     delete req.body.id;
     const product = await Product.findById(id);
     if (!isOwner(product, req)) {

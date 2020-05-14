@@ -9,7 +9,7 @@ const User = require("../models/user-model");
 const keys = require("../keys");
 const regEmail = require("../emails/registration");
 const resetEmail = require("../emails/reset");
-const { registerValidators } = require("../utils/validators");
+const { loginValidators, registerValidators } = require("../utils/validators");
 
 const router = new Router();
 
@@ -34,7 +34,7 @@ router.get("/logout", async (req, res) => {
   });
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", loginValidators, async (req, res) => {
   try {
     const { email, password } = req.body;
     const candidate = await User.findOne({ email });

@@ -1,7 +1,13 @@
+{{#if error}}
+<div>
+    <p class="toast">{{error}}</p>
+</div>
+{{/if}}
+
 <h1>Добавить новый товар</h1>
 
-<form action="/add-product" method="POST">
-   
+<form action="/add-product" method="POST" novalidate>
+
     <div class="switch availability">
         <label>
             Нет в наличии
@@ -10,10 +16,10 @@
             В наличии
         </label>
     </div>
-     <div>
+    <div>
         <label>Тип одежды</label>
         <select name="typeOfclothes" required="required" id="typeOfclothes" type="select" class="browser-default">
-            <option value="" disabled="true" selected="selected">Выберите тип одежды</option>
+            <option value="" disabled="true" selected="selected" >Выберите тип одежды</option>
             <option value="T-SHIRTS">T-SHIRTS</option>
             <option value="SWEATSHIRTS">SWEATSHIRTS</option>
             <option value="HOODY">HOODY</option>
@@ -33,28 +39,32 @@
         <label>Тип одежды</label>
     </div> --}}
     <div class="input-field">
-        <input id="title" name="title" type="text" class="validate" required>
+        <input id="title" name="title" type="text" class="validate" required value="{{data.title}}">
         <label for="title">Название товара</label>
         <span class="helper-text" data-error="Введите название товара"></span>
     </div>
     <div class="input-field">
-        <input id="price" name="price" type="number" class="validate" required>
+        <input id="price" name="price" type="number" class="validate" required value="{{data.price}}">
         <label for="price">Цена</label>
         <span class="helper-text" data-error="Введите цену товара"></span>
 
     </div>
     <div class="input-field">
-        <input id="sku" name="sku" type="text" class="validate" required>
+        <input id="sku" name="sku" type="text" class="validate" required value="{{data.sku}}">
         <label for="sku">Артикул</label>
         <span class="helper-text" data-error="Введите артикул"></span>
     </div>
     <div class="input-field">
-        <input id="quantity" name="quantity" type="number" class="validate" required>
+        <input id="quantity" name="quantity" type="number" class="validate" required value="{{data.quantity}}">
         <label for="quantity">Количество</label>
         <span class="helper-text" data-error="Введите количество товаров"></span>
     </div>
-
-    <div class="file-field input-field">
+    <div class="input-field">
+        <input id="img" name="img" type="text" class="validate" required value="{{data.img}}">
+        <label for="img">Добавьте url изображения</label>
+        <span class="helper-text" data-error="Добавьте корректный url изображения"></span>
+    </div>
+    {{!-- <div class="file-field input-field">
         <div class="btn">
             <span>Фото</span>
             <input name="img" type="file" multiple>
@@ -62,7 +72,7 @@
         <div class="file-path-wrapper">
             <input class="file-path validate" type="text" placeholder="Добавьте одно или несколько изображений">
         </div>
-    </div>
+    </div> --}}
 
     <input type="hidden" name="_csrf" value="{{csrf}}">
 
@@ -70,12 +80,12 @@
 </form>
 
 <script>
- document.getElementById('submit').onclick = () => {
-  const select = document.querySelector("select[name='typeOfclothes']")
-  const value = select.value;
-  const option = select.querySelector(`option[value='${value}']`)
-  const text = option.innerText
-  console.log(text)
-}
-        
+    document.getElementById('submit').onclick = () => {
+        const select = document.querySelector("select[name='typeOfclothes']")
+        const value = select.value;
+        const option = select.querySelector(`option[value='${value}']`)
+        const text = option.innerText
+        console.log(text)
+    }
+
 </script>

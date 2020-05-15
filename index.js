@@ -47,6 +47,7 @@ app.set("view engine", "hbs"); // тут уже его используем
 app.set("views", "views"); // первый параметр - название переменной, второй - название папки где будут храниться все шаблоны
 
 app.use(express.static(path.join(__dirname, "public"))); // метод use позволяет добовлять middleware'ы
+app.use('/images', express.static(path.join(__dirname, "images"))); 
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({

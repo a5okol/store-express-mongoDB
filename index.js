@@ -22,6 +22,7 @@ const cardRoutes = require("./routes/card");
 const addProductRoutes = require("./routes/addProduct");
 const ordersRoutes = require("./routes/orders");
 const authRoutes = require("./routes/auth.js");
+const errorHandler = require("./middleware/error")
 const keys = require("./keys")
 
 const varMiddleware = require("./middleware/variables");
@@ -68,6 +69,8 @@ app.use("/card", cardRoutes);
 app.use("/add-product", addProductRoutes);
 app.use("/orders", ordersRoutes);
 app.use("/auth", authRoutes);
+
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 3000;
 

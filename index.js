@@ -28,6 +28,7 @@ const keys = require("./keys")
 
 const varMiddleware = require("./middleware/variables");
 const userMiddleware = require("./middleware/user")
+const fileMiddleware = require("./middleware/file")
 
 const app = express();
 const hbs = exphbs.create({
@@ -55,6 +56,7 @@ app.use(
     store
   })
 );
+app.use(fileMiddleware.single('avatar')) // single - говорим, что файл один
 app.use(csrf());
 app.use(flash());
 app.use(varMiddleware);

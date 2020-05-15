@@ -1,33 +1,34 @@
-{{#if error}}
-<div>
-    <p class="toast">{{error}}</p>
-</div>
-{{/if}}
-
-<h1>Добавить новый товар</h1>
-
-<form action="/add-product" method="POST" novalidate>
-
-    <div class="switch availability">
-        <label>
-            Нет в наличии
-            <input name="availability" type="checkbox">
-            <span class="lever"></span>
-            В наличии
-        </label>
-    </div>
+<div class="edit-product">
+    {{#if error}}
     <div>
-        <label>Тип одежды</label>
-        <select name="typeOfclothes" required="required" id="typeOfclothes" type="select" class="browser-default">
-            <option value="" disabled="true" selected="selected" >Выберите тип одежды</option>
-            <option value="T-SHIRTS">T-SHIRTS</option>
-            <option value="SWEATSHIRTS">SWEATSHIRTS</option>
-            <option value="HOODY">HOODY</option>
-            <option value="SHIRTS">SHIRTS</option>
-            <option value="BACKPACKS">BACKPACKS</option>
-        </select>
+        <p class="toast">{{error}}</p>
     </div>
-    {{!-- <div class="input-field">
+    {{/if}}
+
+    <h1 class='edit-product-h1'>Добавить новый товар</h1>
+
+    <form action="/add-product" method="POST" novalidate>
+
+        <div class="switch availability">
+            <label>
+                Нет в наличии
+                <input name="availability" type="checkbox">
+                <span class="lever"></span>
+                В наличии
+            </label>
+        </div>
+        <div>
+            <label>Тип одежды</label>
+            <select name="typeOfclothes" required="required" id="typeOfclothes" type="select" class="browser-default">
+                <option value="" disabled="true" selected="selected">Выберите тип одежды</option>
+                <option value="T-SHIRTS">T-SHIRTS</option>
+                <option value="SWEATSHIRTS">SWEATSHIRTS</option>
+                <option value="HOODY">HOODY</option>
+                <option value="SHIRTS">SHIRTS</option>
+                <option value="BACKPACKS">BACKPACKS</option>
+            </select>
+        </div>
+        {{!-- <div class="input-field">
         <select name="typeOfclothes" type="select">
             <option value="" disabled selected>Выберите тип одежды</option>
             <option value="1">T-SHIRTS</option>
@@ -38,33 +39,33 @@
         </select>
         <label>Тип одежды</label>
     </div> --}}
-    <div class="input-field">
-        <input id="title" name="title" type="text" class="validate" required value="{{data.title}}">
-        <label for="title">Название товара</label>
-        <span class="helper-text" data-error="Введите название товара"></span>
-    </div>
-    <div class="input-field">
-        <input id="price" name="price" type="number" class="validate" required value="{{data.price}}">
-        <label for="price">Цена</label>
-        <span class="helper-text" data-error="Введите цену товара"></span>
+        <div class="input-field">
+            <input id="title" name="title" type="text" class="validate" required value="{{data.title}}">
+            <label for="title">Название товара</label>
+            <span class="helper-text" data-error="Введите название товара"></span>
+        </div>
+        <div class="input-field">
+            <input id="price" name="price" type="number" class="validate" required value="{{data.price}}">
+            <label for="price">Цена</label>
+            <span class="helper-text" data-error="Введите цену товара"></span>
 
-    </div>
-    <div class="input-field">
-        <input id="sku" name="sku" type="text" class="validate" required value="{{data.sku}}">
-        <label for="sku">Артикул</label>
-        <span class="helper-text" data-error="Введите артикул"></span>
-    </div>
-    <div class="input-field">
-        <input id="quantity" name="quantity" type="number" class="validate" required value="{{data.quantity}}">
-        <label for="quantity">Количество</label>
-        <span class="helper-text" data-error="Введите количество товаров"></span>
-    </div>
-    <div class="input-field">
-        <input id="img" name="img" type="text" class="validate" required value="{{data.img}}">
-        <label for="img">Добавьте url изображения</label>
-        <span class="helper-text" data-error="Добавьте корректный url изображения"></span>
-    </div>
-    {{!-- <div class="file-field input-field">
+        </div>
+        <div class="input-field">
+            <input id="sku" name="sku" type="text" class="validate" required value="{{data.sku}}">
+            <label for="sku">Артикул</label>
+            <span class="helper-text" data-error="Введите артикул"></span>
+        </div>
+        <div class="input-field">
+            <input id="quantity" name="quantity" type="number" class="validate" required value="{{data.quantity}}">
+            <label for="quantity">Количество</label>
+            <span class="helper-text" data-error="Введите количество товаров"></span>
+        </div>
+        <div class="input-field">
+            <input id="img" name="img" type="text" class="validate" required value="{{data.img}}">
+            <label for="img">Добавьте url изображения</label>
+            <span class="helper-text" data-error="Добавьте корректный url изображения"></span>
+        </div>
+        {{!-- <div class="file-field input-field">
         <div class="btn">
             <span>Фото</span>
             <input name="img" type="file" multiple>
@@ -74,10 +75,11 @@
         </div>
     </div> --}}
 
-    <input type="hidden" name="_csrf" value="{{csrf}}">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
 
-    <button id='submit' class="btn btn-large">Создать товар</button>
-</form>
+        <button id='submit' class="btn btn-large">Создать товар</button>
+    </form>
+</div>
 
 <script>
     document.getElementById('submit').onclick = () => {

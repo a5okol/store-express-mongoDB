@@ -1,5 +1,6 @@
-<h1>Backpacks</h1>
-<div class="row">
+<div class="row home-black-products">
+    <h1>Все товары магазина</h1>
+
     {{#if products.length}}
     {{#each products}}
     <div class="col s4">
@@ -27,11 +28,11 @@
                         </form>
                     </div>
                     {{#if @root.isAuth}}
-                            {{#ifeq userId._id @root.userId}}
-                            <div class="col s2">
-                                <a href="/{{id}}/edit?allow=true">Ред.</a>
-                            </div>
-                            {{/ifeq}}
+                    {{#ifeq userId._id @root.userId}}
+                    <div class="col s2">
+                        <a href="/{{id}}/edit?allow=true">Ред.</a>
+                    </div>
+                    {{/ifeq}}
                     {{else}}
 
                     {{/if}}
@@ -39,7 +40,15 @@
             </div>
         </div>
     </div>
+
     {{/each}}
+    <div class="start-phrase-of-the-day">
+        <div class="start-phrase-of-the-day-content">
+            <div class="start-phrase-of-the-day-text">
+                Есть только <span class="start-phrase-of-the-day-text-white">белый</span> и чёрный. Остальное - оттенки.
+            </div>
+        </div>
+    </div>
     {{else}}
     <p>В данной категории товары отсутствуют.</p>
     {{/if}}

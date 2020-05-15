@@ -35,6 +35,25 @@ h1 {
   font-size: 35px;
 }
 
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.edit-product {
+  background: white;
+  padding: 0px 20px 20px 20px;
+  border-radius: 3px;
+}
+
+.edit-product-h1 {
+  padding-top: 20px;
+}
+
+html {
+    font-size: 15px;
+    background: #ececec;
+}
 .nav-wrapper {
   padding: 0 10px;
 }
@@ -186,12 +205,16 @@ ul#tabs-swipe {
   text-align: center;
 }
 .col.s12.offset-s3 {
-  background-color: #eaeaea !important;
+  background-color: #ffffff !important;
   border-radius: 4px;
   padding: 20px;
 }
 .auth.container {
   width: 42%;
+}
+
+.tabs {
+  background-color: #ececec;
 }
 
 .tabs .tab a:hover,
@@ -213,4 +236,53 @@ ul#tabs-swipe {
 .gray_link {
   margin-left: 32px;
   color: #969696;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.start-phrase-of-the-day {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
+  contain: strict;
+  display: -webkit-box;
+  display: flex;
+  /* -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center; */
+  align-items: center;
+  width: 100%;
+  height: 140px;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.start-phrase-of-the-day-content {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-align: start;
+  align-items: flex-start;
+}
+
+.start-phrase-of-the-day-text {
+  font-size: 28px;
+  line-height: 43px;
+  word-spacing: 6px;
+  font-weight: 700;
+}
+
+.start-phrase-of-the-day-text-white {
+  padding: 9px 15px;
+  background: #000;
+  color: #fff;
+}
+
+
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav {
+  -webkit-mask-image: -webkit-radial-gradient(#fff,#000);
 }

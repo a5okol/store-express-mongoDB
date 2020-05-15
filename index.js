@@ -23,6 +23,7 @@ const addProductRoutes = require("./routes/addProduct");
 const ordersRoutes = require("./routes/orders");
 const authRoutes = require("./routes/auth.js");
 const errorHandler = require("./middleware/error")
+const profileRoutes = require("./routes/profile")
 const keys = require("./keys")
 
 const varMiddleware = require("./middleware/variables");
@@ -69,6 +70,7 @@ app.use("/card", cardRoutes);
 app.use("/add-product", addProductRoutes);
 app.use("/orders", ordersRoutes);
 app.use("/auth", authRoutes);
+app.use("/profile", profileRoutes);
 
 app.use(errorHandler)
 

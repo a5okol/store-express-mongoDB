@@ -3,11 +3,12 @@ nav {
   background-color: black;
 }
 nav ul li.active {
-  background-color: rgb(64, 64, 64);
+  background-color: rgba(255, 255, 255, 0.26);
 }
 nav ul a:hover {
   background-color: rgba(255, 255, 255, 0.18);
 }
+
 nav ul a {
   -webkit-transition: none;
   transition: none;
@@ -51,8 +52,8 @@ h2 {
 }
 
 html {
-    font-size: 15px;
-    background: #ececec;
+  font-size: 15px;
+  background: #f3f3f3;
 }
 .nav-wrapper {
   padding: 0 10px;
@@ -193,6 +194,19 @@ select {
   background: #2d2d2d;
 }
 
+.header-li-style {
+  background: #693a3a;
+  line-height: 60px;
+  border-bottom: 4px solid #4e1f1e;
+}
+li.active.header-li-style {
+  background-color: rgb(95, 45, 44);
+  border-bottom: 4px solid #441a19;
+}
+.header-li-style a:hover {
+  background-color: rgb(94, 46, 44);
+}
+
 .row.price-category-info {
   margin-bottom: 0;
   width: 100%;
@@ -214,7 +228,7 @@ ul#tabs-swipe {
 }
 
 .tabs {
-  background-color: #ececec;
+  background-color: #f3f3f3;
 }
 
 .tabs .tab a:hover,
@@ -238,7 +252,8 @@ ul#tabs-swipe {
   color: #969696;
 }
 
-.tabs .tab a:focus, .tabs .tab a:focus.active {
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
   background-color: rgba(255, 255, 255, 0.95);
 }
 
@@ -282,7 +297,22 @@ ul#tabs-swipe {
   color: #fff;
 }
 
+.z-depth-1,
+nav,
+.card-panel,
+.card,
+.toast,
+.btn,
+.btn-large,
+.btn-small,
+.btn-floating,
+.dropdown-content,
+.collapsible,
+.sidenav {
+  -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
+}
 
-.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav {
-  -webkit-mask-image: -webkit-radial-gradient(#fff,#000);
+.avatar{
+  width: 300px;
+  height: auto;
 }

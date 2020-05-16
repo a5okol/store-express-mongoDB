@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "handlebars": "^4.7.6",
     "@handlebars/allow-prototype-access": "^1.0.3",
     "@sendgrid/mail": "^7.1.0",
     "bcryptjs": "^2.4.3",
@@ -29,8 +30,7 @@
     "nodemailer": "^6.4.6",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "uuid": "^7.0.3",
-    "nodemon": "^2.0.2",
-    "handlebars": "^4.7.6"
+    "nodemon": "^2.0.2"
   },
   "devDependencies": {
     "handlebars": "^4.7.6",

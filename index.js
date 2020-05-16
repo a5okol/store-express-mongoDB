@@ -9,10 +9,10 @@ const flash = require("connect-flash");
 const helmet = require("helmet")
 const compression = require("compression")
 
-// const Handlebars = require("handlebars");
-// const {
-//   allowInsecurePrototypeAccess,
-// } = require("@handlebars/allow-prototype-access");
+const Handlebars = require("handlebars");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
 
 const homeRoutes = require("./routes/home");
 const tshirtsRoutes = require("./routes/tshirts");
@@ -36,7 +36,7 @@ const app = express();
 const hbs = exphbs.create({
   defaultLayout: "main",
   extname: "hbs",
-  // handlebars: allowInsecurePrototypeAccess(Handlebars),
+  handlebars: allowInsecurePrototypeAccess(Handlebars),
   helpers: require('./utils/hbs-helpers')
 });
 const store = new MongoStore({

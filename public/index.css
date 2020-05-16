@@ -197,11 +197,11 @@ select {
 .header-li-style {
   background: #693a3a;
   line-height: 60px;
-  border-bottom: 4px solid #4e1f1e;
+  border-bottom: 2px solid #4e1f1e;
+  border-top: 2px solid #4e1f1e;
 }
 li.active.header-li-style {
   background-color: rgb(95, 45, 44);
-  border-bottom: 4px solid #441a19;
 }
 .header-li-style a:hover {
   background-color: rgb(94, 46, 44);
@@ -309,10 +309,17 @@ nav,
 .dropdown-content,
 .collapsible,
 .sidenav {
-  -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
+  /* -webkit-mask-image: -webkit-radial-gradient(#fff, #000); */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.avatar{
+.avatar {
   width: 300px;
   height: auto;
+}
+.card .card-image img {
+  padding: 28px;
+}
+.card .card-image {
+  height: 320px;
 }

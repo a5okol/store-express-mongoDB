@@ -1,12 +1,5 @@
-module.exports = {
-  MONGODB_URI: "mongodb+srv://andrew:0uZrCRaZ5ORKmSXB@cluster0-tn1re.mongodb.net/shop",
-  SESSION_SECRET: "some secret value",
-  SENDGRID_API_KEY: "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",
-  // SENDGRID_API_KEY: "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",
-  EMAIL_FROM: "andrew@sokolenko.biz",
-  BASE_URL: 'http://localhost:3000'
-};
-
-
-//  "API_KEY_FOR_NODEJS" was successfully created and added to the next step.
-// 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
+if (process.env.NODE_ENV === "production") {
+  module.exports = require("./keys.prod");
+} else {
+  module.exports = require("./keys.dev");
+}

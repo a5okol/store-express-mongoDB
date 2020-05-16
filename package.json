@@ -30,11 +30,7 @@
     "nodemailer": "^6.4.6",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "uuid": "^7.0.3",
-<<<<<<< HEAD
     "nodemon": "^2.0.2"
-=======
-    "handlebars": "^4.7.6"
->>>>>>> 1d0f87558673c16ec3da2adcf31cca9fcb8253cc
   },
   "devDependencies": {
     "handlebars": "^4.7.6",

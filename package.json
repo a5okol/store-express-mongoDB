@@ -1,7 +1,7 @@
 {
   "name": "store-express-mongodb",
   "version": "1.0.0",
-  "description": "",
+  "description": "Some description of project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -29,10 +29,10 @@
     "nodemailer": "^6.4.6",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "uuid": "^7.0.3",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "handlebars": "^4.7.6"
   },
   "devDependencies": {
-    "handlebars": "^4.7.6",
-    "nodemon": "^2.0.2"
+    "handlebars": "^4.7.6"
   }
 }

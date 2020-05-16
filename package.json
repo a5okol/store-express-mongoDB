@@ -1,15 +1,19 @@
 {
-  "name": "store-express-mongodb",
+  "name": "nodejs-ecommers",
   "version": "1.0.0",
-  "description": "Some description of project",
+  "description": "deploy",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "dev": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a5okol/store-express-mongoDB.git"
+  },
+  "keywords": [
+    "store"
+  ],
+  "author": "Andrew Sokolenko",
   "license": "ISC",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
@@ -28,11 +32,12 @@
     "multer": "^1.4.2",
     "nodemailer": "^6.4.6",
     "nodemailer-sendgrid-transport": "^0.2.0",
-    "uuid": "^7.0.3",
     "nodemon": "^2.0.2",
+    "uuid": "^7.0.3",
     "handlebars": "^4.7.6"
   },
-  "devDependencies": {
-    "handlebars": "^4.7.6"
-  }
+  "bugs": {
+    "url": "https://github.com/a5okol/store-express-mongoDB/issues"
+  },
+  "homepage": "https://github.com/a5okol/store-express-mongoDB#readme"
 }

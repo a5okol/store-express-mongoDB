@@ -9,7 +9,7 @@ const flash = require("connect-flash");
 const helmet = require("helmet")
 const compression = require("compression")
 
-const Handlebars = require("handlebars");
+const handlebarsSolution = require("handlebars");
 const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
@@ -36,7 +36,7 @@ const app = express();
 const hbs = exphbs.create({
   defaultLayout: "main",
   extname: "hbs",
-  handlebars: allowInsecurePrototypeAccess(Handlebars),
+  handlebars: allowInsecurePrototypeAccess(handlebarsSolution),
   helpers: require('./utils/hbs-helpers')
 });
 const store = new MongoStore({
@@ -92,7 +92,7 @@ async function start() {
     });
 
     app.listen(PORT, () => {
-      console.log(`Bro, Server is running on port ${PORT}`);
+      console.log(`Server is running on port ${PORT}`);
     });
   } catch (err) {
     console.log(err);

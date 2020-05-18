@@ -323,3 +323,10 @@ nav,
 .card .card-image {
   height: 320px;
 }
+.page-footer {
+  background-color: #000000;
+}
+
+.page-footer .footer-copyright {
+  background-color: rgba(255, 255, 255, 0.15);
+}

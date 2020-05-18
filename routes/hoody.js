@@ -1,11 +1,22 @@
 const { Router } = require("express");
+const Product = require("../models/product-model");
 const router = new Router();
 
-router.get("/", (req, res) => {
-    res.render('hoody', {
-        title: 'Стильные свитера с капюшоном в интерент-магазина одежды',
-        isHoody: true
-      })
-})
+router.get("/", async (req, res) => {
+  try {
+    const products = await Product.find({ typeOfclothes: "BACKPACKS" })
+      .populate("userId", "email name")
+      .select("price title img typeOfclothes");
 
-module.exports = router
+    res.render("hoody", {
+      title: "Стильные свитера с капюшоном в интерент-магазина одежды",
+      isHoody: true,
+      userId: req.user ? req.user._id.toString() : null,
+      products,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+module.exports = router;

@@ -4,7 +4,7 @@ const router = new Router();
 
 router.get("/", async (req, res) => {
   try {
-    const products = await Product.find({ typeOfclothes: "BACKPACKS" })
+    const products = await Product.find({ typeOfclothes: "HOODY" })
       .populate("userId", "email name")
       .select("price title img typeOfclothes");
 

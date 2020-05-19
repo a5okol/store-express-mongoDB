@@ -318,15 +318,24 @@ nav,
   height: auto;
 }
 .card .card-image img {
-  padding: 28px;
+  padding: 26px;
+  max-height: 320px;
+  width: auto;
+  max-width: 100%;
 }
 .card .card-image {
   height: 320px;
+  vertical-align: middle;
+  display: table-cell;
 }
 .page-footer {
+  margin-top: 30px;
   background-color: #000000;
 }
 
 .page-footer .footer-copyright {
   background-color: rgba(255, 255, 255, 0.15);
+}
+.main_block {
+  min-height: 500px;
 }

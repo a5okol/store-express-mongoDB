@@ -1,0 +1,46 @@
+<h1>Sweatshirts</h1>
+<div class="row">
+    {{#if products.length}}
+    {{#each products}}
+    <div class="col s4">
+
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <a href="/product/{{id}}">
+                    <img class="activator" src="{{img}}">
+                </a>
+            </div>
+            <div class="card-content">
+                <span>{{typeOfclothes}}</span>
+                <span class="card-title activator grey-text text-darken-4">
+                    <a href="/product/{{id}}">{{title}}</a>
+                </span>
+                <div class="row price-category-info">
+                    <div class="col s12">
+                        <p class="price">{{price}}</p>
+                    </div>
+                    <div class="col s10">
+                        <form action="/card/add" method="POST">
+                            <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+                            <input type="hidden" name='id' value="{{this.id}}">
+                            <button class="btn btn-primary">Купить</button>
+                        </form>
+                    </div>
+                    {{#if @root.isAuth}}
+                            {{#ifeq userId._id @root.userId}}
+                            <div class="col s2">
+                                <a href="/{{id}}/edit?allow=true">Ред.</a>
+                            </div>
+                            {{/ifeq}}
+                    {{else}}
+
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <p>В данной категории товары отсутствуют.</p>
+    {{/if}}
+</div>
